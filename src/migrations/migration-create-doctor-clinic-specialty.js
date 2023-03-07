@@ -1,7 +1,13 @@
 'use strict';
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('allcodes', {
+        await queryInterface.createTable('doctor_clinic_specialty', {
+
+            // currentNumber: DataTypes.INTEGER,
+            // maxNumber: DataTypes.INTEGER,
+            // date: DataTypes.DATE,
+            // timeType: DataTypes.STRING,
+            // doctorId: DataTypes.INTEGER,
 
             id: {
                 allowNull: false,
@@ -9,18 +15,17 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            key: {
-                type: Sequelize.STRING
+            doctorId: {
+                type: Sequelize.INTEGER
             },
-            type: {
-                type: Sequelize.STRING
+            clinicId: {
+                type: Sequelize.INTEGER
             },
-            valueEn: {
-                type: Sequelize.STRING
+            specialtyId: {
+                type: Sequelize.INTEGER
             },
-            valueVi: {
-                type: Sequelize.STRING
-            },
+
+
             createdAt: {
                 allowNull: false,
                 type: Sequelize.DATE
@@ -32,6 +37,6 @@ module.exports = {
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('allcodes');
+        await queryInterface.dropTable('doctor_clinic_specialty');
     }
 };
